@@ -2,10 +2,118 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>מפנה לפודקאסט</title>
-    <meta http-equiv="refresh" content="0; url=Podcast.m4a">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פודקאסט בביולוגיה בנושא דובים</title>
+    <style>
+        /* CSS לעיצוב */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+            direction: rtl; 
+            text-align: right;
+        }
+
+        .podcast-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center; 
+        }
+
+        .bear-emoji {
+            font-size: 4em; 
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            color: #000000; /* שינוי: הכותרת כעת שחורה */
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        
+        .audio-player-wrapper {
+            text-align: right; 
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .creators {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: right; 
+        }
+
+        .creators h3 {
+            color: #555;
+            margin-bottom: 5px; /* הוספת רווח מתחת לכותרת "יוצרים" */
+            font-size: 1.1em;
+            display: block; /* כדי להבטיח שהשמות יופיעו בשורה חדשה */
+        }
+        
+        .creator-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .creator-list li {
+            margin-bottom: 3px;
+            font-weight: 500;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <p>מפנה כעת לפודקאסט... אם ההפניה לא עובדת, לחץ על הקישור הבא: <a href="Podcast.m4a">Podcast.m4a</a></p>
+
+    <div class="podcast-container">
+        
+        <span class="bear-emoji">🐻</span>
+        
+        <h1>פודקאסט בביולוגיה בנושא דובים</h1>
+        
+        <div class="audio-player-wrapper">
+            <audio id="podcastPlayer" controls preload="auto">
+                <source src="Podcast.m4a" type="audio/mp4"> 
+                <source src="Podcast.mp3" type="audio/mpeg"> 
+                <p>הדפדפן שלך אינו תומך ברכיב האודיו. לחץ כאן להורדה: <a href="Podcast.m4a">Podcast.m4a</a></p>
+            </audio>
+        </div>
+
+        <div class="creators">
+            <h3>יוצרי הפודקאסט:</h3> 
+            <ul class="creator-list">
+                <li>עידו מזרחי</li>
+                <li>עמית מטיאס</li>
+                <li>עדי גולדברג</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const player = document.getElementById('podcastPlayer');
+            
+            // ניסיון הפעלה אוטומטית
+            player.play().catch(error => {
+                console.log("הפעלה אוטומטית נחסמה על ידי הדפדפן.", error);
+            });
+        });
+    </script>
+
 </body>
 </html>
